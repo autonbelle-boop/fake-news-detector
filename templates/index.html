@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Fake News Detector</title>
+
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 55px;
+        }
+
+        h1 {
+            color: #172033;
+            font-size: 36px;
+        }
+
+        .subtitle {
+            color: #667085;
+            font-size: 17px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin: 25px 0 10px;
+            color: #172033;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 180px;
+            padding: 15px;
+            border: 2px solid #d9dee8;
+            border-radius: 12px;
+            font-size: 16px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 18px;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            background: #4f7cff;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #365fd8;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 15px;
+            background: #f4f6fa;
+            text-align: center;
+        }
+
+        .prediction {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .confidence {
+            color: #667085;
+        }
+
+        .disclaimer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #7a8494;
+            font-size: 13px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 15px;
+            color: #9aa3b2;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div class="icon">🤖</div>
+        <h1>AI Fake News Detector</h1>
+        <p class="subtitle">
+            Use machine learning to analyze a news headline.
+        </p>
+    </div>
+
+    <form method="POST">
+
+        <label for="article">Enter a News Headline</label>
+
+        <textarea
+            id="article"
+            name="article"
+            placeholder="Paste a news headline here..."
+            required
+        ></textarea>
+
+        <button type="submit">
+            🔍 Analyze Headline
+        </button>
+
+    </form>
+
+    {% if prediction %}
+    <div class="result">
+
+        <h2>AI Analysis</h2>
+
+        <div class="prediction">
+            {{ prediction }}
+        </div>
+
+        {% if confidence %}
+<div class="confidence">
+    Model confidence: {{ "%.1f"|format(confidence * 100) }}%
+    <div>
+        {{ confidence_label }}
+    </div>
+</div>
+{% endif %}
+
+    </div>
+    {% endif %}
+
+    <div class="disclaimer">
+        This tool provides an AI-based classification and should not be
+        treated as proof that a news article is true or false.
+    </div>
+
+    <div class="footer">
+        AI Software Engineering Project
+    </div>
+
+</div>
+
+</body>
+</html>
