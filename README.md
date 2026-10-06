@@ -52,10 +52,11 @@ fake-news-detector/
 ├── model.pkl
 ├── vectorizer.pkl
 ├── fake_news.py
-├── fake_news_detector.py
 ├── test.py
 └── templates/
     └── index.html
+```
+
 ```
 
 ## Running the Project
