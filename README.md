@@ -1,7 +1,9 @@
 # Fake News Detector
 
 An AI-powered web application that analyzes news headlines and predicts whether they are **FAKE NEWS** or **REAL NEWS**.
+## Demo
 
+![Fake News Detector](Screenshot%202026-09-30%20164335.png)
 ## Project Overview
 
 This project uses machine learning and natural language processing (NLP) to classify news headlines.
