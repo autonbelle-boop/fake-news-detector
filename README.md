@@ -57,8 +57,6 @@ fake-news-detector/
     └── index.html
 ```
 
-```
-
 ## Running the Project
 
 Install the required Python packages:
